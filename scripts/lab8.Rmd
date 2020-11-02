@@ -57,7 +57,6 @@ r_refs("r-references.bib")
 library(tidyverse)
 library(rio)
 library(janitor)
-library(papaja)
 library(tinytex)
 library(knitr)
 library(psych)
@@ -66,15 +65,10 @@ library(here)
 here()
 ```
 
-```{r analysis-preferences}
-# Seed for random number generation
-set.seed(42)
-knitr::opts_chunk$set(cache.extra = knitr::rand_seed)
-```
 
 ```{r}
 data = import(here("data", "star.csv"), setclass = "tbl_df")
-kable(head(data), caption = "Brief look at the dataset" )
+
 ```
 
 
@@ -96,6 +90,8 @@ We used `r cite_r("r-references.bib")` for all our analyses.
 
 # Discussion
 
+@hurtz2000personality studied how personality affects teacher's math experience. 
+Another study found that bhavioral interventions are necessary [@vernon2008behavioral].
 
 \newpage
 
