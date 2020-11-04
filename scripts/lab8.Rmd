@@ -104,7 +104,6 @@ star_descriptives
 ```{r kable, results="asis"}
 kable(star_descriptives,
       col.names = c("sex", "frl", "math_mean", "math_sd", "rdg_mean", "rdg_sd"),
-      caption = "Table 1",
       digits = 2)
 ```
 From Table 1, we can see that that overall, girls perform better than boys in both math and reading. Further, boys and girls with free lunch perform below average in math and reading compared to those who are not in the free lunch program. Finally, it appears that an interaction occurs where boys in the free lunch program perform substantially below average.
@@ -129,7 +128,7 @@ ggplot(star, aes(x = totexp, y = tmathss,)) +
 
 
 ```
-
+From this graph, we can see that overall, as teacher experience increases, so does math scores. In addition, those with paid meals outperform those with free/reduced lunch. There does not appear to be an interaction effect.
 
 
 # Discussion
