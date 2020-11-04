@@ -47,7 +47,10 @@ mask              : no
 draft             : no
 
 documentclass     : "apa6"
-classoption       : "man"
+classoption: "man, fleqn, noextraspace"
+header-includes:
+  - \raggedbottom
+  - \setlength{\parskip}{0pt}
 output            : papaja::apa6_pdf
 ---
 
@@ -61,8 +64,6 @@ library(tinytex)
 library(knitr)
 library(psych)
 library(here)
-
-here()
 ```
 
 
@@ -70,8 +71,8 @@ here()
 data = import(here("data", "star.csv"), setclass = "tbl_df")
 
 ```
-
-
+# Introduction
+Here we will explain how we came up with our hypotheses.
 
 # Methods
 We report how we determined our sample size, all data exclusions (if any), all manipulations, and all measures in the study. <!-- 21-word solution (Simmons, Nelson & Simonsohn, 2012; retrieved from http://ssrn.com/abstract=2160588) -->
