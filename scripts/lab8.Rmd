@@ -67,10 +67,7 @@ library(here)
 ```
 
 
-```{r}
-data = import(here("data", "star.csv"), setclass = "tbl_df")
 
-```
 # Introduction
 Here we will explain how we came up with our hypotheses.
 
@@ -88,6 +85,53 @@ We used `r cite_r("r-references.bib")` for all our analyses.
 
 
 # Results
+
+```{r table, include=FALSE}
+star = import(here("data", "star.csv"), setclass = "tbl_df")
+  
+
+star_descriptives <- star %>% 
+  mutate(tmathss = scale(tmathss), treadss = scale(treadss)) %>%
+  group_by(sex, frl) %>%
+  summarize(math_mean = mean(tmathss),
+            math_sd = sd(tmathss),
+            rdg_mean = mean(treadss),
+            rdg_sd = sd(treadss))
+star_descriptives
+
+```
+
+```{r kable, results="asis"}
+kable(star_descriptives,
+      col.names = c("sex", "frl", "math_mean", "math_sd", "rdg_mean", "rdg_sd"),
+      caption = "Table 1",
+      digits = 2)
+```
+From Table 1, we can see that that overall, girls perform better than boys in both math and reading. Further, boys and girls with free lunch perform below average in math and reading compared to those who are not in the free lunch program. Finally, it appears that an interaction occurs where boys in the free lunch program perform substantially below average.
+
+```{r}
+
+
+library(ggplot2)
+ggplot(star, aes(x = totexp, y = tmathss,)) +
+  theme_minimal() +
+  geom_point() +
+  geom_smooth(method = lm, aes(color = frl)) +
+  labs(x = "Teacher Experience (years)",
+       y = "Total Math Scale Score",
+       fill = "Lunch status") +
+  theme(legend.position = "bottom",
+        legend.direction = "horizontal") +
+  scale_fill_discrete(name = "Lunch status",
+                      labels = c("Paid Meals", "Free/Reduced Price Meals"),
+                      guide = guide_legend(reverse=TRUE))
+  
+
+
+
+```
+
+
 
 # Discussion
 
