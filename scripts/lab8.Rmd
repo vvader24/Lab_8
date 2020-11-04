@@ -38,7 +38,7 @@ wordcount         : ""
 
 bibliography      : ["r-references.bib"]
 
-floatsintext      : no
+floatsintext      : yes
 figurelist        : no
 tablelist         : no
 footnotelist      : no
@@ -115,15 +115,14 @@ From Table 1, we can see that that overall, girls perform better than boys in bo
 library(ggplot2)
 ggplot(star, aes(x = totexp, y = tmathss,)) +
   theme_minimal() +
-  geom_point() +
+  geom_point(color = "gray70", alpha = .7) +
   geom_smooth(method = lm, aes(color = frl)) +
   labs(x = "Teacher Experience (years)",
        y = "Total Math Scale Score",
-       fill = "Lunch status") +
+       color = "Lunch status") +
   theme(legend.position = "bottom",
         legend.direction = "horizontal") +
-  scale_fill_discrete(name = "Lunch status",
-                      labels = c("Paid Meals", "Free/Reduced Price Meals"),
+  scale_color_discrete(labels = c("Paid Meals", "Free/Reduced Price Meals"),
                       guide = guide_legend(reverse=TRUE))
   
 

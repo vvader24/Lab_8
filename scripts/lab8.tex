@@ -4,7 +4,7 @@
 %
 \documentclass[
   english,
-  man, fleqn, noextraspace]{apa6}
+  man, fleqn, noextraspace,floatsintext]{apa6}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -113,12 +113,6 @@
 \makeatother
 \shorttitle{Running head}
 \keywords{teacher experience, math scores\newline\indent Word count: }
-\DeclareDelayedFloatFlavor{ThreePartTable}{table}
-\DeclareDelayedFloatFlavor{lltable}{table}
-\DeclareDelayedFloatFlavor*{longtable}{table}
-\makeatletter
-\renewcommand{\efloat@iwrite}[1]{\immediate\expandafter\protected@write\csname efloat@post#1\endcsname{}}
-\makeatother
 \usepackage{csquotes}
 \raggedbottom
 \setlength{\parskip}{0pt}
@@ -156,20 +150,6 @@ This analysis explores the relationship between teacher experience and math scor
 \begin{document}
 \maketitle
 
-\begin{tabular}{l|l|r|r|r|r}
-\hline
-sex & frl & math\_mean & math\_sd & rdg\_mean & rdg\_sd\\
-\hline
-boy & no & 0.1508070 & 0.9700014 & 0.1483331 & 1.0171663\\
-\hline
-boy & yes & -0.3302473 & 0.9648602 & -0.3576296 & 0.8381149\\
-\hline
-girl & no & 0.3256686 & 0.9621233 & 0.3711657 & 1.0865888\\
-\hline
-girl & yes & -0.1703866 & 0.9692926 & -0.1869336 & 0.8630403\\
-\hline
-\end{tabular}
-
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
@@ -196,6 +176,29 @@ We used R (Version 4.0.2; R Core Team, 2020) and the R-package \emph{papaja} (Ve
 
 \hypertarget{results}{%
 \section{Results}\label{results}}
+
+\begin{table}
+
+\caption{\label{tab:kable}Table 1}
+\centering
+\begin{tabular}[t]{l|l|r|r|r|r}
+\hline
+sex & frl & math\_mean & math\_sd & rdg\_mean & rdg\_sd\\
+\hline
+boy & no & 0.15 & 0.97 & 0.15 & 1.02\\
+\hline
+boy & yes & -0.33 & 0.96 & -0.36 & 0.84\\
+\hline
+girl & no & 0.33 & 0.96 & 0.37 & 1.09\\
+\hline
+girl & yes & -0.17 & 0.97 & -0.19 & 0.86\\
+\hline
+\end{tabular}
+\end{table}
+
+From Table 1, we can see that that overall, girls perform better than boys in both math and reading. Further, boys and girls with free lunch perform below average in math and reading compared to those who are not in the free lunch program. Finally, it appears that an interaction occurs where boys in the free lunch program perform substantially below average.
+
+\includegraphics{lab8_files/figure-latex/unnamed-chunk-1-1.pdf}
 
 \hypertarget{discussion}{%
 \section{Discussion}\label{discussion}}

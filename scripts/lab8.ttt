@@ -1,0 +1,20 @@
+\begin{table*}[hbt]
+\ifnextchar[{\eatarg}{}
+
+
+\caption{\label{tab:kable}Table 1}
+\centering
+\begin{tabular}[t]{l|l|r|r|r|r}
+\hline
+sex & frl & math\_mean & math\_sd & rdg\_mean & rdg\_sd\\
+\hline
+boy & no & 0.15 & 0.97 & 0.15 & 1.02\\
+\hline
+boy & yes & -0.33 & 0.96 & -0.36 & 0.84\\
+\hline
+girl & no & 0.33 & 0.96 & 0.37 & 1.09\\
+\hline
+girl & yes & -0.17 & 0.97 & -0.19 & 0.86\\
+\hline
+\end{tabular}
+\end{table*}
